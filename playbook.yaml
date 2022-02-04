@@ -201,5 +201,26 @@
       state: absent
       remove: yes 
 
+-
+  hosts: localhost
+  connection: local
+
+  tasks:
+  - name: Download source setup
+    get_url:
+      url: https://deb.nodesource.com/setup_17.x
+      dest: /root/nodesource_setup.sh
+      mode: 0700
+
+  - name: Set Node source in apt
+    shell:
+      cmd: /root/nodesource_setup.sh
+      executable: /bin/bash
+
+  - name: Apt install NodeJS
+    apt:
+      name: nodejs
+      update_cache: yes
+
 # Three dots indicate the end of a YAML document
 ...
