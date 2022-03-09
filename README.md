@@ -19,7 +19,16 @@ If you encounter Ansible errors, revise the requirements and playbook files as n
 
 ## Dev Resources
 
-See the `devResources` directory for instructions and templates related to installing various tools that require additional steps to properly install/execute.  Examples include Chrome and VS Code (including extensions)
+See the `devResources` directory for instructions and templates related to installing various tools that require additional steps to properly install/execute.  Examples include Chrome and VS Code (including extensions).
+
+## Chrome, VS Code, and Electron Apps seccomp settings
+
+Chrome (and by extension VS Code and other Electron based apps) require customized [seccomp profiles in order to work in Docker/Kasm Workspaces](https://blog.jessfraz.com/post/how-to-use-new-docker-seccomp-profiles/).  We have tried to create a working seccomp profile based on Jessie Frazelle's work.  And for some applications we have been successful.  However, upon review of our chrome.json file and this [list of Linux system calls](https://filippo.io/linux-syscall-table/) referenced by Jessie Frazelle, we have had to permit 310 out of the 314 listed calls.  And, we still get errors for some Electron apps.  So, at this point, instead of simply white listing the remaining 4 system calls, we are instead running Kasm Workspaces which include Chrome or Electron apps [without the default seccomp profile](https://docs.docker.com/engine/security/seccomp/#run-without-the-default-seccomp-profile) by passing `unconfined` to the workspace in the `docker-compose.yml` file as seen below.
+
+```yaml
+    security_opt:
+      - seccomp=unconfined
+```
 
 ## Using the image locally
 
