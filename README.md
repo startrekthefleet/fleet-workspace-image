@@ -1,8 +1,8 @@
-# Mach 30 Python Workspace (Kasm Image)
+# LearnTeachCode Workspace (Kasm Image)
 
 ## Introduction
 
-This repo provides a workspace for Mach 30 volunteers to work on Python projects based on the [Ansible based template for KASM Ubuntu Focal Images](https://github.com/j-simmons-phd/kasm-core-focal-template) template provided by @j-simmons-phd.  The workspace is configured with the following software:
+This repo provides a workspace for the [LearnTeachCode resource page](https://github.com/LearnTeachCode/code-coffee-compendium/) based on the [Ansible based template for KASM Ubuntu Focal Images](https://github.com/j-simmons-phd/kasm-core-focal-template) template provided by @j-simmons-phd.  The workspace is configured with the following software:
 
 - git cli
 - [Keychain](https://www.funtoo.org/Keychain)
@@ -18,14 +18,14 @@ This repo provides a workspace for Mach 30 volunteers to work on Python projects
 
 ## How to Use this Repo
 
-1. Clone this repo, giving the new repo a descriptive name for the workspace image to be created
-1. Run `docker-compose pull` to download the image or run `docker-compose build` to build the workspace image 
+1. Clone and change directory into this repo
+1. Run `docker-compose pull` to download the image or run `docker-compose build` to build the workspace image locally
 
 ## Using the image locally
 
 Once built, the image can be pushed into the Kasm server per Kasm documentation or it can be run locally on port 6901 using docker-compose.
 
-- **Starting the image locally:** Run `docker-compose up -d`
+- **Starting the image locally:** Run `docker-compose up`
 - **Stopping the image locally:** Run `docker-compose down`
 
 When running locally, the workspace can be accessed at https://localhost:6901 with
