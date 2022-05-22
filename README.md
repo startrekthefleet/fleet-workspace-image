@@ -16,6 +16,7 @@ This repo provides a workspace for the [LearnTeachCode resource page](https://gi
 - VS Code with the following extensions (note, auto-updates are disabled)
     - [Python extension by Microsoft](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
     - [Dendron](https://marketplace.visualstudio.com/items?itemName=dendron.dendron)
+    - [Foam](https://marketplace.visualstudio.com/items?itemName=foam.foam-vscode)
 
 ## How to Use this Repo
 
