@@ -1,8 +1,8 @@
-# LearnTeachCode Workspace (Kasm Image)
+# Artifactory Workspace (Kasm Image)
 
 ## Introduction
 
-This repo provides a workspace for the [LearnTeachCode resource page](https://github.com/LearnTeachCode/code-coffee-compendium/) based on the [Ansible based template for KASM Ubuntu Focal Images](https://github.com/j-simmons-phd/kasm-core-focal-template) template provided by @j-simmons-phd.  The workspace is configured with the following software:
+This repo provides an iiac workspace for generating artifacts based on the [Ansible based template for KASM Ubuntu Focal Images](https://github.com/j-simmons-phd/kasm-core-focal-template) template provided by @j-simmons-phd.  The workspace is configured with the following software:
 
 - git cli
 - [Keychain](https://www.funtoo.org/Keychain)
