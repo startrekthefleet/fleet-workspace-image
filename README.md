@@ -17,11 +17,11 @@ This repo provides an iiac workspace for generating artifacts based on the [Ansi
     - [Python extension by Microsoft](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
     - [Dendron](https://marketplace.visualstudio.com/items?itemName=dendron.dendron)
     - [Foam](https://marketplace.visualstudio.com/items?itemName=foam.foam-vscode)
-
-## How to Use this Repo
-
-1. Clone and change directory into this repo
-1. Run `docker-compose pull` to download the image or run `docker-compose build` to build the workspace image locally
+- Artifact Generators
+    - [PlantUML](https://plantuml.com/)
+        - JDK v11
+        - Graphviz 2.50 (built from source)
+    - [AsciiDoctor](https://asciidoctor.org/) v2.0.17 with PlantUML and PDF support
 
 ## Using the image locally
 
