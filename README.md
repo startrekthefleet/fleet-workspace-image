@@ -1,5 +1,7 @@
 # Fleet Workspace (Kasm Image)
 
+![Screenshot from 2023-03-18 12-25-23](https://user-images.githubusercontent.com/14095576/226132866-497d2a5c-17b3-4e4e-b971-9aec492841c6.png)
+
 ## Introduction
 
 This repo provides an Immutable-Infrastructure-as-Code (IIaC) workspace for Star Trek: The Fleet (costuming fan group) based on the [Ansible based template for KASM Ubuntu Focal Images](https://github.com/j-simmons-phd/kasm-core-focal-template) template provided by @j-simmons-phd.  The workspace is configured with the following software:
