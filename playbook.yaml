@@ -92,6 +92,19 @@
     - role: do1jlr.install_firefox
 
 -
+  # install artemis bridge simulator (demo version)
+  hosts: localhost
+  connection: local
+  gather_facts: yes
+  tags: install_artemis
+
+  strategy: free
+  serial:
+    - "100%"
+  roles:
+    - don_rumata.ansible_role_install_wine
+
+-
   # install keychain, git, and @capsulecorplab .vimrc and .gitconfig
   hosts: localhost
   connection: local
