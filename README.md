@@ -23,12 +23,35 @@ This repo provides an iiac workspace for generating artifacts based on the [Ansi
         - Graphviz 2.50 (built from source)
     - [AsciiDoctor](https://asciidoctor.org/) v2.0.17 with PlantUML and PDF support
 
+## Requirements
+
+1. A Bash terminal ([Ubuntu on WSL2](https://ubuntu.com/tutorials/install-ubuntu-on-wsl2-on-windows-11-with-gui-support#2-install-wsl) recommended for Windows users).
+2. [Docker Compose](https://docs.docker.com/compose/install/) ([Docker Desktop](https://docs.docker.com/desktop/) recommended for non-Linux users)
+
+## Setup/Installation
+
+From a bash terminal,
+
+1. Clone this repo
+
+```bash
+git clone https://github.com/capsulecorplab/artifactory-workspace-image.git
+```
+
+2. Change directory into `artifactory-workspace-image`.
+
+```bash
+cd artifactory-workspace-image
+```
+
+3. Run `docker-compose pull` (Note: Linux users may need to prepend this command with `sudo`) to pull the published version of the workspace image or run `docker-compose build` to build the image locally.
+
 ## Using the image locally
 
-Once built, the image can be pushed into the Kasm server per Kasm documentation or it can be run locally on port 6901 using docker-compose.
+Once pulled or built, the image can be run locally on port 6901 using docker-compose.
 
 - **Starting the image locally:** Run `docker-compose up`
-- **Stopping the image locally:** Run `docker-compose down`
+- **Stopping the image locally:** Use keyboard shortcut **Ctrl+C**
 
 When running locally, the workspace can be accessed at https://localhost:6901 with
 - **User:** `kasm_user`
