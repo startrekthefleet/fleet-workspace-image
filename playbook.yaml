@@ -55,6 +55,18 @@
 # addtional plays
 
 -
+  # Add Fleet handbook
+  hosts: localhost
+  connection: local
+
+  tasks:
+  - name: Add fleet handbook to $HOME directory
+    copy:
+      src: /home/kasm-default-profile/install_files/star_trek_the_fleet_handbook_1.0.pdf
+      dest: /home/kasm-default-profile/star_trek_the_fleet_handbook_1.0.pdf
+      remote_src: yes
+
+-
   # Install build-essential
   hosts: localhost
   connection: local
