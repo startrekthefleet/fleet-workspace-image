@@ -104,6 +104,15 @@
   roles:
     - don_rumata.ansible_role_install_wine
 
+  tasks:
+  - name: Join ArtemisDEMOInstall.exe from split files
+    shell: cat /home/kasm-default-profile/install_files/ArtemisDEMOInstall.exe.part* > /home/kasm-default-profile/install_files/ArtemisDEMOInstall.exe
+  - name: Install Artemis Spaceship Bridge Simulator (Demo version)
+    copy:
+      src: /home/kasm-default-profile/install_files/ArtemisDEMOInstall.exe
+      dest: /home/kasm-default-profile/ArtemisDEMOInstall.exe
+      remote_src: yes
+
 -
   # install keychain, git, and @capsulecorplab .vimrc and .gitconfig
   hosts: localhost
