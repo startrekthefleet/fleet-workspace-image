@@ -4,9 +4,16 @@
 
 This repo provides an Immutable-Infrastructure-as-Code (IIaC) workspace for generating artifacts based on the [Ansible based template for KASM Ubuntu Focal Images](https://github.com/j-simmons-phd/kasm-core-focal-template) template provided by @j-simmons-phd.  The workspace is configured with the following software:
 
-- git cli
-- [Keychain](https://www.funtoo.org/Keychain)
-- Chrome
+- Node JS Tools
+    - nodejs v17.9.0
+    - npm v8.5.5 (included with nodejs)
+    - npx v8.5.5 (included with nodejs)
+- Utilities
+    - git v2.38.1 with @capsulecorplab .gitconfig
+    - [Keychain](https://www.funtoo.org/Keychain) v2.8.5
+    - Vim (pre-installed) with @capsulecorplab [vimrc](https://gist.github.com/capsulecorplab/495058e7a57ed8adaed3c40c80d09739#file-vimrc)
+- Web Browsers
+    - firefox
 - Python 3.8.x (part of the image template) with the following packages (not part of the image template)
     - pip
     - [JupyterLab](https://jupyter.org/)
