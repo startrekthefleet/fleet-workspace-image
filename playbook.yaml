@@ -70,13 +70,14 @@
       update_cache: yes
 
 -
-  # install chrome
+  # install firefox
   hosts: localhost
   connection: local
   gather_facts: yes
+  tags: install_firefox
 
   roles:
-    - role: webarchitect609.google_chrome
+    - role: do1jlr.install_firefox
 
 -
   # install keychain, git, and @capsulecorplab .vimrc and .gitconfig
