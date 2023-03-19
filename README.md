@@ -42,19 +42,25 @@ This repo provides an Immutable-Infrastructure-as-Code (IIaC) workspace for Star
 
 From a bash terminal,
 
-1. Clone this repo
+1. Clone this repo:
 
 ```bash
 git clone https://github.com/startrekthefleet/fleet-workspace-image.git
 ```
 
-2. Change directory into `fleet-workspace-image`.
+2. Change directory into `fleet-workspace-image`:
 
 ```bash
 cd fleet-workspace-image
 ```
 
-3. Run `docker-compose pull` (Note: Linux users may need to prepend this command with `sudo`) to pull the published version of the workspace image or run `docker-compose build` to build the image locally.
+3. Pull the published version of the workspace image (Note: Linux users may need to prepend this command with `sudo`):
+
+```bash
+docker-compose pull
+```
+
+Note: Alternatively, you can run `docker-compose build` to build the image locally.
 
 ## Using the image locally
 
