@@ -38,6 +38,12 @@ This repo provides an Immutable-Infrastructure-as-Code (IIaC) workspace for Star
 1. A Bash terminal ([Ubuntu on WSL2](https://ubuntu.com/tutorials/install-ubuntu-on-wsl2-on-windows-11-with-gui-support#2-install-wsl) recommended for Windows users).
 2. [Docker Compose](https://docs.docker.com/compose/install/) ([Docker Desktop](https://docs.docker.com/desktop/) recommended for non-Linux users)
 
+### Additional requirements for Windows
+
+In **Windows Features**, enable **Virtual Machine Platform** and **Windows Subsystem for Linux**
+
+![image](https://user-images.githubusercontent.com/14095576/226184350-2b45b23b-551f-4aee-b5c9-391a20518666.png)
+
 ## Setup/Installation
 
 From a bash terminal,
