@@ -127,7 +127,7 @@
   vars:
     pandoc_version: "2.18"
     texlive_version: "2021.20220204-1"
-    texlive_version_expected: "pdfTeX 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian)"
+    texlive_version_expected: "pdfTeX 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian)"
     asciidoctor_version: 2.0.17
     asciidoctor_version_expected: "{{ asciidoctor_version }}[.]"
 
