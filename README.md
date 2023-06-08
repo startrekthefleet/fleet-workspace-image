@@ -4,7 +4,7 @@
 
 ## Introduction
 
-This repo provides an Immutable-Infrastructure-as-Code (IIaC) workspace for Star Trek: The Fleet (costuming fan group) based on the [Ansible based template for KASM Ubuntu Focal Images](https://github.com/j-simmons-phd/kasm-core-focal-template) template provided by @j-simmons-phd.  The workspace is configured with the following software:
+This repo provides an Immutable-Infrastructure-as-Code (IIaC) workspace for Star Trek: The Fleet (costuming fan group) based on the [Ansible based template for KASM Ubuntu Jammy Images](https://hub.docker.com/r/kasmweb/core-ubuntu-jammy) template provided by @j-simmons-phd.  The workspace is configured with the following software:
 
 - [Artemis Spaceship Bridge Simulator (Demo version)](https://www.artemisspaceshipbridge.com)
 - Node JS Tools
@@ -12,7 +12,7 @@ This repo provides an Immutable-Infrastructure-as-Code (IIaC) workspace for Star
     - npm v8.5.5 (included with nodejs)
     - npx v8.5.5 (included with nodejs)
 - Utilities
-    - git v2.38.1 with @capsulecorplab .gitconfig
+    - git v2.41.0 with @capsulecorplab .gitconfig
     - [Keychain](https://www.funtoo.org/Keychain) v2.8.5
     - Vim (pre-installed) with @capsulecorplab [vimrc](https://gist.github.com/capsulecorplab/495058e7a57ed8adaed3c40c80d09739#file-vimrc)
 - Web Browsers
@@ -23,6 +23,14 @@ This repo provides an Immutable-Infrastructure-as-Code (IIaC) workspace for Star
     - [Jupyter Notebook](https://jupyter.org/)
     - [Voilà](https://voila.readthedocs.io/en/stable/index.html)
     - [Pint](https://pint.readthedocs.io/en/stable/)
+- Artifact Generators
+    - [Pandoc](https://pandoc.org/) v2.18
+    - [TeX Live](https://www.tug.org/texlive/) v2022 to enable PDF support in Pandoc
+    - [yq](https://mikefarah.gitbook.io/yq/) v4.20.2
+    - [AsciiDoctor](https://asciidoctor.org/) v2.0.17 with PlantUML and PDF support
+    - [PlantUML](https://plantuml.com/)
+        - JDK v11
+        - Graphviz 2.50 (built from source)
 - VS Code with the following extensions (note, auto-updates are disabled)
     - [Python extension by Microsoft](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
     - [Dendron](https://marketplace.visualstudio.com/items?itemName=dendron.dendron)
@@ -32,6 +40,12 @@ This repo provides an Immutable-Infrastructure-as-Code (IIaC) workspace for Star
         - JDK v11
         - Graphviz 2.50 (built from source)
     - [AsciiDoctor](https://asciidoctor.org/) v2.0.17 with PlantUML and PDF support
+    - [LaTeX Workshop](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop)
+- Knowledge Capture Tools
+    - [JabRef](https://www.jabref.org/) v5.5.6
+- OSHW Design Tools
+    - [Arduino](https://wiki-content.arduino.cc/en/software) 1.8.19
+    - [PrusaSlicer](https://www.prusa3d.com/page/prusaslicer_424/) 2.5.1
 
 ## Requirements
 
