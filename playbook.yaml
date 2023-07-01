@@ -256,19 +256,24 @@
   hosts: localhost
   connection: local
   gather_facts: yes
+  tags:
+  - install_prusaslicer
+
+  vars:
+    prusaslicer_version: 2.5.2
+
   tasks:
   - name: Join parts of PrusaSlicer tarball
-    shell: cat /home/kasm-default-profile/install_files/PrusaSlicer-2.5.2+linux-x64-GTK3-202303231201.tar.bz2.parta* > /home/kasm-default-profile/install_files/PrusaSlicer-2.5.2+linux-x64-GTK3-202303231201.tar.bz2
+    shell: cat /home/kasm-default-profile/install_files/PrusaSlicer-{{ prusaslicer_version }}+linux-x64-GTK3-202303231201.tar.bz2.parta* > /home/kasm-default-profile/install_files/PrusaSlicer-{{ prusaslicer_version }}+linux-x64-GTK3-202303231201.tar.bz2
   - name: Extract PrusaSlicer for 64-bit Linux to /opt
     unarchive:
-      src: /home/kasm-default-profile/install_files/PrusaSlicer-2.5.2+linux-x64-GTK3-202303231201.tar.bz2
+      src: /home/kasm-default-profile/install_files/PrusaSlicer-{{ prusaslicer_version }}+linux-x64-GTK3-202303231201.tar.bz2
       dest: /opt
       remote_src: yes
   - name: Create local application folder for PrusaSlicer
     shell: mkdir -p /home/kasm-default-profile/.local/share/applications/
   - name: Configure PrusaSlicer desktop shortcut
-    shell: echo "[Desktop Entry]\nName=PrusaSlicer\nGenericName=PrusaSlicer\nExec=/opt/PrusaSlicer-2.5.2+linux-x64-GTK3-202303231201/bin/prusa-slicer\nIcon=/opt/PrusaSlicer-2.5.2+linux-x64-GTK3-202303231201/resources/icons/PrusaSlicer.png\nTerminal=false\nType=Application\nStartupNotify=false\nCategories=Application;Development;" > /home/kasm-default-profile/.local/share/applications/prusaslicer.desktop
-
+    shell: echo "[Desktop Entry]\nName=PrusaSlicer\nGenericName=PrusaSlicer\nExec=/opt/PrusaSlicer-2.5.2+linux-x64-GTK3-202303231201/bin/prusa-slicer\nIcon=/opt/PrusaSlicer-{{ prusaslicer_version }}+linux-x64-GTK3-202303231201/resources/icons/PrusaSlicer.png\nTerminal=false\nType=Application\nStartupNotify=false\nCategories=Application;Development;" > /home/kasm-default-profile/.local/share/applications/prusaslicer.desktop
 
 -
   # install NodeJs
