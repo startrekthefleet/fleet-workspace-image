@@ -252,6 +252,48 @@
     when: installed_graphviz_version.stderr != graphviz_version_expected
 
 -
+  # install LCARSDE
+  hosts: localhost
+  connection: local
+  gather_facts: yes
+  tags:
+  - install_lcarsde
+
+  vars:
+    lcarswm_version: 23.1
+    lcars_application_starter_version: 23.1
+    lcars_status_bar_version: 23.1
+    lcars_application_menu_version: 23.1
+    lcars_logout_version: 23.1
+    lcars_onboard_theme_version: 23.1
+
+  tasks:
+  - name: install LCARS Window Manager {{ lcarswm_version }} from deb
+    apt:
+      deb: https://github.com/lcarsde/lcarswm/releases/download/{{ lcarswm_version }}/lcarswm_{{ lcarswm_version }}_amd64.deb
+      update_cache: yes
+  - name: install LCARS Application Starter {{ lcars_application_starter_version }} from deb
+    apt:
+      deb: https://github.com/lcarsde/application-starter/releases/download/{{ lcars_application_starter_version }}/lcarsde-application-starter_{{ lcars_application_starter_version }}_amd64.deb
+      update_cache: yes
+  - name: install LCARS Status Bar {{ lcars_status_bar_version }} from deb
+    apt:
+      deb: https://github.com/lcarsde/status-bar/releases/download/{{ lcars_status_bar_version }}/status-bar_{{ lcars_status_bar_version }}_amd64.deb
+      update_cache: yes
+  - name: install LCARS Application Menu {{ lcars_application_menu_version }} from deb
+    apt:
+      deb: https://github.com/lcarsde/menu/releases/download/{{ lcars_application_menu_version }}/lcarsde-app-menu_{{ lcars_application_menu_version }}_amd64.deb
+      update_cache: yes
+  - name: install LCARS Logout {{ lcars_logout_version }} from deb
+    apt:
+      deb: https://github.com/lcarsde/logout/releases/download/{{ lcars_logout_version }}/lcarsde-logout_{{ lcars_logout_version }}_amd64.deb
+      update_cache: yes
+  - name: install LCARS Onboard on-screen keyboard {{ lcars_onboard_theme_version }} from deb
+    apt:
+      deb: https://github.com/lcarsde/lcarsde-onboard-theme/releases/download/{{ lcars_onboard_theme_version }}/lcarsde-onboard-theme_{{ lcars_onboard_theme_version }}_amd64.deb
+      update_cache: yes
+
+-
   # install PrusaSlicer
   hosts: localhost
   connection: local
