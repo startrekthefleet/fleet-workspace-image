@@ -89,17 +89,20 @@
   - install_doctools
   - install_plantuml
 
+  vars:
+    zlib_version: "1.2.13"
+
   tasks:
-  - name: Extract zlib v1.2.13 source from tarball
+  - name: Extract zlib {{ zlib_version }} source from tarball
     unarchive:
-      src: /home/kasm-default-profile/install_files/zlib-1.2.13.tar.gz
+      src: /home/kasm-default-profile/install_files/zlib-{{ zlib_version }}.tar.gz
       dest: /home/kasm-default-profile/install_files
       remote_src: yes
-      creates: /home/kasm-default-profile/install_files/zlib-1.2.13/README
-  - name: Build zlib v1.2.13
+      creates: /home/kasm-default-profile/install_files/zlib-{{ zlib_version }}/README
+  - name: Build zlib {{ zlib_version }}
     shell:
       cmd: ./configure && make > /tmp/zlib_build_output.txt 2>&1 && make install
-      chdir: /home/kasm-default-profile/install_files/zlib-1.2.13/
+      chdir: /home/kasm-default-profile/install_files/zlib-{{ zlib_version }}/
       executable: /bin/bash
 
 -
