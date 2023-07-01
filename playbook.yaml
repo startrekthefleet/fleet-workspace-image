@@ -139,12 +139,6 @@
     apt:
       name: ruby-full
       update_cache: yes
-  - name: Join parts of jabref tarball
-    shell: cat /home/kasm-default-profile/install_files/jabref_5.6-1_amd64.deb.part* > /home/kasm-default-profile/install_files/jabref_5.6-1_amd64.deb
-  - name: install jabref from deb
-    apt:
-      deb: /home/kasm-default-profile/install_files/jabref_5.6-1_amd64.deb
-      update_cache: yes
   - name: Run gem install for asciidoctor
     shell:
       cmd: "gem install asciidoctor -v {{ asciidoctor_version }}"
