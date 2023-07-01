@@ -45,7 +45,7 @@ This repo provides an Immutable-Infrastructure-as-Code (IIaC) workspace for Star
     - [JabRef](https://www.jabref.org/) v5.5.6
 - OSHW Design Tools
     - [Arduino](https://wiki-content.arduino.cc/en/software) 1.8.19
-    - [PrusaSlicer](https://www.prusa3d.com/page/prusaslicer_424/) 2.5.1
+    - [PrusaSlicer](https://www.prusa3d.com/page/prusaslicer_424/) 2.5.2
 
 ## Requirements
 
