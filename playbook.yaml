@@ -268,12 +268,14 @@
     lcars_onboard_theme_version: 23.1
 
   tasks:
-  - name: install LCARSDE dependencies with apt
+  - name: install LCARSDE dependencies with apt # as per https://github.com/lcarsde/lcarswm/blob/81bfeaab36e321c2beb1664fab17957c9b59d253/.circleci/config.yml#L29 and https://christitus.com/star-trek-os/
     apt:
       name: xorg, lightdm, libx11-dev, libxpm-dev, libxrandr-dev, libpango1.0-dev, libicu-dev, libxml2-dev, libtinfo6
       update_cache: yes
   - name: symlink libtinfo5 to libtinfo6
     shell: ln -s  /usr/lib/libtinfo.so.6 /usr/lib/libtinfo.so.5
+  - name: configure graphical install # as per https://christitus.com/star-trek-os/
+    shell: systemctl set-default graphical.target
   - name: install LCARS Window Manager {{ lcarswm_version }} from deb
     apt:
       deb: https://github.com/lcarsde/lcarswm/releases/download/{{ lcarswm_version }}/lcarswm_{{ lcarswm_version }}_amd64.deb
