@@ -270,7 +270,7 @@
   tasks:
   - name: install LCARSDE dependencies with apt
     apt:
-      name: libx11-dev, libxpm-dev, libxrandr-dev, libpango1.0-dev, libicu-dev, libxml2-dev, libtinfo6
+      name: xorg, lightdm, libx11-dev, libxpm-dev, libxrandr-dev, libpango1.0-dev, libicu-dev, libxml2-dev, libtinfo6
       update_cache: yes
   - name: symlink libtinfo5 to libtinfo6
     shell: ln -s  /usr/lib/libtinfo.so.6 /usr/lib/libtinfo.so.5
