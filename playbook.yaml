@@ -268,6 +268,12 @@
     lcars_onboard_theme_version: 23.1
 
   tasks:
+  - name: install LCARSDE dependencies with apt
+    apt:
+      name: libx11-dev, libxpm-dev, libxrandr-dev, libpango1.0-dev, libicu-dev, libxml2-dev, libtinfo6
+      update_cache: yes
+  - name: symlink libtinfo5 to libtinfo6
+    shell: ln -s  /usr/lib/libtinfo.so.6 /usr/lib/libtinfo.so.5
   - name: install LCARS Window Manager {{ lcarswm_version }} from deb
     apt:
       deb: https://github.com/lcarsde/lcarswm/releases/download/{{ lcarswm_version }}/lcarswm_{{ lcarswm_version }}_amd64.deb
