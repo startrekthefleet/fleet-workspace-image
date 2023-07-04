@@ -6,7 +6,7 @@
 
 This repo provides an Immutable-Infrastructure-as-Code (IIaC) workspace for Star Trek: The Fleet (costuming fan group) based on the [Ansible based template for KASM Ubuntu Jammy Images](https://hub.docker.com/r/kasmweb/core-ubuntu-jammy) template provided by @j-simmons-phd.  The workspace is configured with the following software:
 
-- [Artemis Spaceship Bridge Simulator (Demo version)](https://www.artemisspaceshipbridge.com)
+- [EmptyEpsilon](https://www.artemisspaceshipbridge.com) EE-2023.06.17 (open-source "clone" of [Artemis Spaceship Bridge Simulator](https://www.artemisspaceshipbridge.com))
 - Node JS Tools
     - nodejs v17.9.0
     - npm v8.5.5 (included with nodejs)

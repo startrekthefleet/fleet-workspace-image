@@ -424,26 +424,22 @@
     - role: do1jlr.install_firefox
 
 -
-  # install artemis bridge simulator (demo version)
+  # install Empty Epsilon
   hosts: localhost
   connection: local
   gather_facts: yes
-  tags: install_artemis
+  tags: install_emptyepsilon
 
-  strategy: free
-  serial:
-    - "100%"
-  roles:
-    - don_rumata.ansible_role_install_wine
+  vars:
+    ee_version: "EE-2023.06.17"
 
   tasks:
-  - name: Join ArtemisDEMOInstall.exe from split files
-    shell: cat /home/kasm-default-profile/install_files/ArtemisDEMOInstall.exe.part* > /home/kasm-default-profile/install_files/ArtemisDEMOInstall.exe
-  - name: Install Artemis Spaceship Bridge Simulator (Demo version)
-    copy:
-      src: /home/kasm-default-profile/install_files/ArtemisDEMOInstall.exe
-      dest: /home/kasm-default-profile/ArtemisDEMOInstall.exe
-      remote_src: yes
+  - name: Download EmptyEpsilon {{ ee_version }} Debian package
+    shell: wget https://github.com/daid/EmptyEpsilon/releases/download/{{ ee_version }}/Linux_EmptyEpsilon_{{ ee_version }}.deb -O /home/kasm-default-profile/install_files/Linux_EmptyEpsilon_{{ ee_version }}.deb
+  - name: Install EmptyEpsilon {{ ee_version }}
+    apt:
+      deb: /home/kasm-default-profile/install_files/Linux_EmptyEpsilon_{{ ee_version }}.deb
+      update_cache: yes
 
 -
   # install keychain, git, and @capsulecorplab .vimrc and .gitconfig
