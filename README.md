@@ -41,8 +41,6 @@ This repo provides an Immutable-Infrastructure-as-Code (IIaC) workspace for Star
         - Graphviz 2.50 (built from source)
     - [AsciiDoctor](https://asciidoctor.org/) v2.0.17 with PlantUML and PDF support
     - [LaTeX Workshop](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop)
-- Knowledge Capture Tools
-    - [JabRef](https://www.jabref.org/) v5.5.6
 - OSHW Design Tools
     - [Arduino](https://wiki-content.arduino.cc/en/software) 1.8.19
     - [PrusaSlicer](https://www.prusa3d.com/page/prusaslicer_424/) 2.5.2
