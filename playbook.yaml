@@ -420,8 +420,23 @@
   gather_facts: yes
   tags: install_firefox
 
+  vars:
+    firefox_profiles:
+      default:
+        extensions:
+          - ublock-origin
+        preferences:
+          network.cookie.cookieBehavior: 1
+          privacy.donottrackheader.enabled: true
+          datareporting.healthreport.uploadEnabled: false
+
+  pre_tasks:
+  - name: Update apt packages
+    apt:
+      update_cache: yes
+
   roles:
-    - role: do1jlr.install_firefox
+    - role: staticdev.firefox
 
 -
   # install Empty Epsilon
