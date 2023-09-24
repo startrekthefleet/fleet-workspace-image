@@ -406,6 +406,58 @@
     shell: rm -rf /home/kasm-default-profile/hugo_extended_0.101.0_Linux-64bit
 
 -
+  # Install Grav as per https://learn.getgrav.org/17/basics/installation
+  hosts: localhost
+  connection: local
+  gather_facts: yes
+  tags:
+    - install_grav_tools
+
+  vars:
+    grav_version: "1.7.42.3"
+
+  tasks:
+  - name: Install PHP tools # as per https://learn.getgrav.org/17/basics/requirements#php-requirements
+    apt:
+      name: php, libapache2-mod-php, php-curl, php-ctype, php-xml, php-zip, php-dom, php-gd, php-json, php-mbstring, php-simplexml
+      update_cache: yes
+  - name: Get php version
+    shell: php -v | grep PHP
+    register: installed_php_version
+  - name: Display php version
+    debug:
+      msg: "php version = {{ installed_php_version.stdout }}"
+  - name: Create directory for installing composer
+    shell: mkdir -p /opt/composer
+  - name: Install composer in /opt # see https://getcomposer.org/download/
+    shell:
+      cmd: php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" && php -r "if (hash_file('sha384', 'composer-setup.php') === 'e21205b207c3ff031906575712edab6f13eb0b361f2085f1f1237b7126d785e826a450292b6cfd1d64d92e6563bbde02') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;" && php composer-setup.php && php -r "unlink('composer-setup.php');"
+      chdir: /opt/composer
+      executable: /bin/bash
+  - name: Create symlink for composer in /usr/local/bin # see https://getcomposer.org/doc/00-intro.md#globally
+    shell: ln -sv /opt/composer/composer.phar /usr/local/bin/composer
+  - name: Create ~/webroot directory
+    shell: mkdir -p /home/kasm-default-profile/webroot
+  - name: Extract Grav to ~/webroot
+    unarchive:
+      src: /home/kasm-default-profile/install_files/grav-v{{ grav_version }}.tar.gz
+      dest: /home/kasm-default-profile/webroot
+      remote_src: yes
+      creates: /home/kasm-default-profile/webroot/grav-{{ grav_version }}/LICENSE.txt
+  - name: Update composer & install vendor dependencies with COMPOSER_ALLOW_SUPERUSER=1
+    shell:
+      cmd: composer update && composer install --no-dev -o
+      chdir: /home/kasm-default-profile/webroot/grav-{{ grav_version }}
+      executable: /bin/bash
+    environment:
+      COMPOSER_ALLOW_SUPERUSER: 1
+  - name: Install plugin and theme dependencies
+    shell:
+      cmd: bin/grav install
+      chdir: /home/kasm-default-profile/webroot/grav-{{ grav_version }}
+      executable: /bin/bash
+
+-
   # add default user to dialout group
   hosts: localhost
   connection: local
