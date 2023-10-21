@@ -276,6 +276,23 @@
     shell: echo "[Desktop Entry]\nName=PrusaSlicer\nGenericName=PrusaSlicer\nExec=/opt/PrusaSlicer-2.5.2+linux-x64-GTK3-202303231201/bin/prusa-slicer\nIcon=/opt/PrusaSlicer-{{ prusaslicer_version }}+linux-x64-GTK3-202303231201/resources/icons/PrusaSlicer.png\nTerminal=false\nType=Application\nStartupNotify=false\nCategories=Application;Development;" > /home/kasm-default-profile/.local/share/applications/prusaslicer.desktop
 
 -
+  # install OpenSCAD
+  hosts: localhost
+  connection: local
+  gather_facts: yes
+  tags:
+  - install_openscad
+
+  vars:
+    openscad_version: "2021.01"
+    openscad_version_to_install: "{{ openscad_version }}-4build1"
+
+  tasks:
+  - name: Install openscad
+    apt:
+      name: "openscad={{ openscad_version_to_install }}"
+
+-
   # install NodeJs
   hosts: localhost
   connection: local

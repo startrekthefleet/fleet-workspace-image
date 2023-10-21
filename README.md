@@ -44,6 +44,7 @@ This repo provides an Immutable-Infrastructure-as-Code (IIaC) workspace for Star
 - OSHW Design Tools
     - [Arduino](https://wiki-content.arduino.cc/en/software) 1.8.19
     - [PrusaSlicer](https://www.prusa3d.com/page/prusaslicer_424/) 2.5.2
+    - [OpenSCAD](https://openscad.org/) 2021.01
 
 ## Requirements
 
