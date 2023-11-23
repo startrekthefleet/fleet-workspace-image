@@ -610,6 +610,21 @@
       line: "Defaults        env_keep += \"DONT_PROMPT_WSL_INSTALL\""
     when: wsl2_environment
 
+- 
+  # install Krita
+  hosts: localhost
+  connection: local
+  tags: install_krita
+
+  tasks:
+  - name: Download Krita
+    shell: wget https://download.kde.org/stable/krita/5.2.1/krita-5.2.1-x86_64.appimage
+  - name: Install Krita
+    copy:
+      src: /home/kasm-default-profile/krita-5.2.1-x86_64.appimage
+      dest: /opt
+      remote_src: yes
+
 -
 # add dev user to give vs code somewhere to install extensions
   hosts: localhost
