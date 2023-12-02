@@ -617,6 +617,16 @@
   tags: install_krita
 
   tasks:
+  - name: Install kmod with apt
+    apt:
+      name: kmod
+      update_cache: yes
+  - name: add universe for installing FUSE 2.x # as per https://github.com/AppImage/AppImageKit/wiki/FUSE#install-fuse
+    shell: add-apt-repository universe
+  - name: Install FUSE 2.x with apt # as per https://github.com/AppImage/AppImageKit/wiki/FUSE#install-fuse and https://docs.appimage.org/user-guide/troubleshooting/fuse.html#setting-up-fuse-2-x-alongside-of-fuse-3-x-on-recent-ubuntu-22-04-debian-and-their-derivatives
+    apt:
+      name: libfuse2
+      update_cache: yes
   - name: Download Krita
     shell: wget https://download.kde.org/stable/krita/5.2.1/krita-5.2.1-x86_64.appimage
   - name: Install Krita
