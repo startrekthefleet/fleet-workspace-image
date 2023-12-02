@@ -260,20 +260,48 @@
   - install_prusaslicer
 
   vars:
-    prusaslicer_version: 2.5.2
+    prusaslicer_version: 2.7.0
+    prusaslicer_release_date: 202311231454
+    prusaslicer_dir: "PrusaSlicer-{{ prusaslicer_version }}+linux-x64-GTK3-{{ prusaslicer_release_date }}"
 
   tasks:
   - name: Join parts of PrusaSlicer tarball
-    shell: cat /home/kasm-default-profile/install_files/PrusaSlicer-{{ prusaslicer_version }}+linux-x64-GTK3-202303231201.tar.bz2.parta* > /home/kasm-default-profile/install_files/PrusaSlicer-{{ prusaslicer_version }}+linux-x64-GTK3-202303231201.tar.bz2
+    shell: cat /home/kasm-default-profile/install_files/{{ prusaslicer_dir }}.tar.bz2.parta* > /home/kasm-default-profile/install_files/{{ prusaslicer_dir }}.tar.bz2
   - name: Extract PrusaSlicer for 64-bit Linux to /opt
     unarchive:
-      src: /home/kasm-default-profile/install_files/PrusaSlicer-{{ prusaslicer_version }}+linux-x64-GTK3-202303231201.tar.bz2
+      src: /home/kasm-default-profile/install_files/{{ prusaslicer_dir }}.tar.bz2
       dest: /opt
       remote_src: yes
+      creates: /opt/{{ prusaslicer_dir }}/bin/prusa-slicer
+  - name: Create symlink for prusa-slicer in /usr/local/bin
+    shell: ln -srv /opt/{{ prusaslicer_dir }}/bin/prusa-slicer /usr/local/bin/prusa-slicer
   - name: Create local application folder for PrusaSlicer
     shell: mkdir -p /home/kasm-default-profile/.local/share/applications/
   - name: Configure PrusaSlicer desktop shortcut
-    shell: echo "[Desktop Entry]\nName=PrusaSlicer\nGenericName=PrusaSlicer\nExec=/opt/PrusaSlicer-2.5.2+linux-x64-GTK3-202303231201/bin/prusa-slicer\nIcon=/opt/PrusaSlicer-{{ prusaslicer_version }}+linux-x64-GTK3-202303231201/resources/icons/PrusaSlicer.png\nTerminal=false\nType=Application\nStartupNotify=false\nCategories=Application;Development;" > /home/kasm-default-profile/.local/share/applications/prusaslicer.desktop
+    shell: echo "[Desktop Entry]\nName=PrusaSlicer\nGenericName=PrusaSlicer\nExec=/usr/local/bin/prusa-slicer\nIcon=/opt/{{ prusaslicer_dir }}/resources/icons/PrusaSlicer.png\nTerminal=false\nType=Application\nStartupNotify=false\nCategories=Application;Development;" > /home/kasm-default-profile/.local/share/applications/prusaslicer.desktop
+  - name: Get prusa-slicer version
+    shell: prusa-slicer --help | grep PrusaSlicer- | awk '{ print $1 '}
+    register: installed_prusaslicer_version
+  - name: Display prusa-slicer version
+    debug:
+      msg: "prusa-slicer = {{ installed_prusaslicer_version.stdout }}"
+  - name: Test prusa-slicer version
+    fail:
+      msg: "prusa-slicer Error: Expected {{ prusaslicer_dir }} | Found {{ installed_prusaslicer_version.stdout }}"
+    when: installed_prusaslicer_version.stdout != prusaslicer_dir
+
+-
+  # Install GIMP
+  hosts: localhost
+  connection: local
+  tags:
+  - install_gimp
+
+  tasks:
+  - name: Install GIMP
+    apt:
+      name: gimp
+      update_cache: yes
 
 -
   # install OpenSCAD
