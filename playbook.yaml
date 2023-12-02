@@ -624,6 +624,9 @@
       src: /home/kasm-default-profile/krita-5.2.1-x86_64.appimage
       dest: /opt
       remote_src: yes
+      owner: root
+      group: root
+      mode: '0755'
 
 -
 # add dev user to give vs code somewhere to install extensions
