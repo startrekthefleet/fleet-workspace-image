@@ -47,6 +47,7 @@ This repo provides an Immutable-Infrastructure-as-Code (IIaC) workspace for Star
     - [OpenSCAD](https://openscad.org/) 2021.01
 - Graphics Tools
     - [GIMP](https://www.gimp.org/)
+    - [Krita](https://www.krita.org/)
 
 ## Requirements
 
