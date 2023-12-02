@@ -638,6 +638,18 @@
       line: "Defaults        env_keep += \"DONT_PROMPT_WSL_INSTALL\""
     when: wsl2_environment
 
+- 
+  # install Krita
+  hosts: localhost
+  connection: local
+  tags: install_krita
+
+  tasks:
+  - name: Install Krita
+    apt:
+      name: krita
+      update_cache: yes
+
 -
 # add dev user to give vs code somewhere to install extensions
   hosts: localhost
