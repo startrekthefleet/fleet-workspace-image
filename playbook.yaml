@@ -291,6 +291,19 @@
     when: installed_prusaslicer_version.stdout != prusaslicer_dir
 
 -
+  # Install GIMP
+  hosts: localhost
+  connection: local
+  tags:
+  - install_gimp
+
+  tasks:
+  - name: Install GIMP
+    apt:
+      name: gimp
+      update_cache: yes
+
+-
   # install OpenSCAD
   hosts: localhost
   connection: local
