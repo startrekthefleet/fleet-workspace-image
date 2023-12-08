@@ -436,26 +436,41 @@
       executable: /bin/bash
   - name: Create symlink for composer in /usr/local/bin # see https://getcomposer.org/doc/00-intro.md#globally
     shell: ln -sv /opt/composer/composer.phar /usr/local/bin/composer
-  - name: Create ~/webroot directory
-    shell: mkdir -p /home/kasm-default-profile/webroot
-  - name: Extract Grav to ~/webroot
+  - name: Extract Grav to /opt
     unarchive:
       src: /home/kasm-default-profile/install_files/grav-v{{ grav_version }}.tar.gz
-      dest: /home/kasm-default-profile/webroot
+      dest: /opt
       remote_src: yes
-      creates: /home/kasm-default-profile/webroot/grav-{{ grav_version }}/LICENSE.txt
+      creates: /opt/grav-{{ grav_version }}/LICENSE.txt
   - name: Update composer & install vendor dependencies with COMPOSER_ALLOW_SUPERUSER=1
     shell:
       cmd: composer update && composer install --no-dev -o
-      chdir: /home/kasm-default-profile/webroot/grav-{{ grav_version }}
+      chdir: /opt/grav-{{ grav_version }}
       executable: /bin/bash
     environment:
       COMPOSER_ALLOW_SUPERUSER: 1
   - name: Install plugin and theme dependencies
     shell:
-      cmd: bin/grav install
-      chdir: /home/kasm-default-profile/webroot/grav-{{ grav_version }}
+      cmd: ./bin/grav install
+      chdir: /opt/grav-{{ grav_version }}
       executable: /bin/bash
+  - name: Create symlink for grav in /usr/local/bin
+    shell: ln -sv /opt/grav-{{ grav_version }}/bin/grav /usr/local/bin/grav
+  - name: Create symlink for gpm in /usr/local/bin
+    shell: ln -sv /opt/grav-{{ grav_version }}/bin/gpm /usr/local/bin/gpm
+  - name: Get Grav version
+    shell:
+      cmd: grav version | grav --version | awk '{ print $4 '}
+      chdir: /opt/grav-{{ grav_version }}
+      executable: /bin/bash
+    register: installed_grav_version
+  - name: Display Grav versions
+    debug:
+      msg: "grav = {{ installed_grav_version.stdout }}"
+  - name: Test Grav version
+    fail:
+      msg: "Grav Version Error: Expected {{ grav_version }} | Found {{ installed_grav_version.stdout }}"
+    when: installed_grav_version.stdout != grav_version
 
 -
   # add default user to dialout group
