@@ -415,7 +415,7 @@
 
   vars:
     grav_version: "1.7.42.3"
-    gravity_version: "v0.1.0-alpha"
+    gravity_version: "v0.1.0-beta"
 
   tasks:
   - name: Install PHP tools # as per https://learn.getgrav.org/17/basics/requirements#php-requirements
