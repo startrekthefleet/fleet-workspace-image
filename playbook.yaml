@@ -415,6 +415,7 @@
 
   vars:
     grav_version: "1.7.42.3"
+    gravity_version: "v0.1.0-alpha"
 
   tasks:
   - name: Install PHP tools # as per https://learn.getgrav.org/17/basics/requirements#php-requirements
@@ -471,6 +472,18 @@
     fail:
       msg: "Grav Version Error: Expected {{ grav_version }} | Found {{ installed_grav_version.stdout }}"
     when: installed_grav_version.stdout != grav_version
+  - name: Clone gravity repo into /opt
+    shell:
+      cmd: git clone https://github.com/startrekthefleet/gravity.git
+      chdir: /opt
+      executable: /bin/bash
+  - name: Checkout {{ gravity_version }} in gravity repo
+    shell:
+      cmd: git checkout {{ gravity_version }}
+      chdir: /opt/gravity
+      executable: /bin/bash
+  - name: Create symlink for gravity in /usr/local/bin
+    shell: ln -sv /opt/gravity/gravity.py /usr/local/bin/gravity
 
 -
   # add default user to dialout group
