@@ -484,9 +484,14 @@
       executable: /bin/bash
   - name: Create symlink for gravity in /usr/local/bin
     shell: ln -sv /opt/gravity/gravity.py /usr/local/bin/gravity
-  - name: Install DevTools plugin for Grav
+  - name: Install DevTools plugin for Grav # see https://learn.getgrav.org/17/themes/theme-tutorial#step-1-install-devtools-plugin
     shell:
       cmd: gpm install devtools
+      chdir: /opt/grav-{{ grav_version }}
+      executable: /bin/bash
+  - name: Install Admin plugin for Grav # see https://learn.getgrav.org/17/admin-panel/introduction#installation
+    shell:
+      cmd: gpm install admin
       chdir: /opt/grav-{{ grav_version }}
       executable: /bin/bash
 
