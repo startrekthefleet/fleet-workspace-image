@@ -414,7 +414,7 @@
     - install_grav_tools
 
   vars:
-    grav_version: "1.7.42.3"
+    grav_version: "1.7.43"
     gravity_version: "v0.1.0-rc1"
 
   tasks:
