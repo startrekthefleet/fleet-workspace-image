@@ -52,6 +52,7 @@ This repo provides an Immutable-Infrastructure-as-Code (IIaC) workspace for Star
     - [Grav (CMS)](https://github.com/getgrav/grav) 1.7.43 with plugins
       - [Grav Devtools Plugin](https://github.com/getgrav/grav-plugin-devtools)
       - [Grav Admin Plugin](https://github.com/getgrav/grav-plugin-admin)
+    - [gravity](https://github.com/startrekthefleet/gravity) v0.1.0-rc1
 
 ## Requirements
 
