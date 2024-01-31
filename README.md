@@ -8,9 +8,13 @@ This repo provides an Immutable-Infrastructure-as-Code (IIaC) workspace for Star
 
 - [EmptyEpsilon](https://www.artemisspaceshipbridge.com) EE-2023.06.17 (open-source "clone" of [Artemis Spaceship Bridge Simulator](https://www.artemisspaceshipbridge.com))
 - Node JS Tools
-    - nodejs v17.9.0
-    - npm v8.5.5 (included with nodejs)
-    - npx v8.5.5 (included with nodejs)
+    - nodejs 18.5.0
+    - npm 8.12.1 (included with nodejs)
+    - npx 8.12.1 (included with nodejs)
+    - yarn 3.5.0
+    - yo 4.3.1
+    - generator-code 1.7.5
+    - sass
 - Utilities
     - git v2.41.0 with @capsulecorplab .gitconfig
     - [Keychain](https://www.funtoo.org/Keychain) v2.8.5
