@@ -417,7 +417,7 @@
     - install_grav_tools
 
   vars:
-    grav_version: "1.7.43"
+    grav_version: "1.7.44"
     gravity_version: "v0.1.0-rc1"
 
   tasks:
@@ -442,7 +442,7 @@
     shell: ln -sv /opt/composer/composer.phar /usr/local/bin/composer
   - name: Extract Grav to /opt
     unarchive:
-      src: /home/kasm-default-profile/install_files/grav-v{{ grav_version }}.tar.gz
+      src: /home/kasm-default-profile/install_files/grav-{{ grav_version }}.tar.gz
       dest: /opt
       remote_src: yes
       creates: /opt/grav-{{ grav_version }}/LICENSE.txt
