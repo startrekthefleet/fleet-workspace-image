@@ -497,6 +497,11 @@
       cmd: gpm install admin
       chdir: /opt/grav-{{ grav_version }}
       executable: /bin/bash
+  - name: Install Sitemap plugin for Grav # see https://github.com/getgrav/grav-plugin-sitemap?tab=readme-ov-file#gpm-installation-preferred
+    shell:
+      cmd: gpm install sitemap
+      chdir: /opt/grav-{{ grav_version }}
+      executable: /bin/bash
 
 -
   # add default user to dialout group
