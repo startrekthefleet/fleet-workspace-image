@@ -492,6 +492,11 @@
       cmd: gpm install devtools
       chdir: /opt/grav-{{ grav_version }}
       executable: /bin/bash
+  - name: Install Telephasic theme for Grav # see https://github.com/pmoreno-rodriguez/grav-theme-telephasic
+    shell:
+      cmd: gpm install telephasic
+      chdir: /opt/grav-{{ grav_version }}
+      executable: /bin/bash
   - name: Install Admin plugin for Grav # see https://learn.getgrav.org/17/admin-panel/introduction#installation
     shell:
       cmd: gpm install admin
