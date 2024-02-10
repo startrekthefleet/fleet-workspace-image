@@ -8,9 +8,13 @@ This repo provides an Immutable-Infrastructure-as-Code (IIaC) workspace for Star
 
 - [EmptyEpsilon](https://www.artemisspaceshipbridge.com) EE-2023.06.17 (open-source "clone" of [Artemis Spaceship Bridge Simulator](https://www.artemisspaceshipbridge.com))
 - Node JS Tools
-    - nodejs v17.9.0
-    - npm v8.5.5 (included with nodejs)
-    - npx v8.5.5 (included with nodejs)
+    - nodejs 18.5.0
+    - npm 8.12.1 (included with nodejs)
+    - npx 8.12.1 (included with nodejs)
+    - yarn 3.5.0
+    - yo 4.3.1
+    - generator-code 1.7.5
+    - sass
 - Utilities
     - git v2.41.0 with @capsulecorplab .gitconfig
     - [Keychain](https://www.funtoo.org/Keychain) v2.8.5
@@ -48,6 +52,13 @@ This repo provides an Immutable-Infrastructure-as-Code (IIaC) workspace for Star
 - Graphics Tools
     - [GIMP](https://www.gimp.org/)
     - [Krita](https://www.krita.org/)
+- Web Development Tools
+    - [Grav (CMS)](https://github.com/getgrav/grav) 1.7.44 with following plugins & themes
+      - [Grav Devtools Plugin](https://github.com/getgrav/grav-plugin-devtools)
+      - [Grav Admin Plugin](https://github.com/getgrav/grav-plugin-admin)
+      - [Grav Sitemap Plugin](https://github.com/getgrav/grav-plugin-sitemap)
+      - [Telephasic theme for Grav](https://github.com/pmoreno-rodriguez/grav-theme-telephasic)
+    - [gravity](https://github.com/startrekthefleet/gravity) v0.1.0-rc1
 
 ## Requirements
 
