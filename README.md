@@ -53,9 +53,11 @@ This repo provides an Immutable-Infrastructure-as-Code (IIaC) workspace for Star
     - [GIMP](https://www.gimp.org/)
     - [Krita](https://www.krita.org/)
 - Web Development Tools
-    - [Grav (CMS)](https://github.com/getgrav/grav) 1.7.44 with plugins
+    - [Grav (CMS)](https://github.com/getgrav/grav) 1.7.44 with following plugins & themes
       - [Grav Devtools Plugin](https://github.com/getgrav/grav-plugin-devtools)
       - [Grav Admin Plugin](https://github.com/getgrav/grav-plugin-admin)
+      - [Grav Sitemap Plugin](https://github.com/getgrav/grav-plugin-sitemap)
+      - [Telephasic theme for Grav](https://github.com/pmoreno-rodriguez/grav-theme-telephasic)
     - [gravity](https://github.com/startrekthefleet/gravity) v0.1.0-rc1
 
 ## Requirements
